@@ -1,12 +1,9 @@
 import React from 'react';
 
 export default function Controls({ query, setQuery, races, setRaces }) {
-  // const handleClick = (e) => {
-  //   setRaces(e.target.value);
-  // };
   return (
     <div>
-      {/* <input
+      <input
         type="text"
         placeholder="Search Name"
         label="Search Name"
@@ -14,7 +11,7 @@ export default function Controls({ query, setQuery, races, setRaces }) {
         onChange={(e) => {
           setQuery(e.target.value);
         }}
-      ></input> */}
+      ></input>
       <select value={races} onChange={(e) => setRaces(e.target.value)}>
         <option value="All">All</option>
         <option value="Dwarf">Dwarf</option>
@@ -24,7 +21,7 @@ export default function Controls({ query, setQuery, races, setRaces }) {
         <option value="Maiar">Maiar</option>
         <option value="Orc">Orc</option>
       </select>
-      {/* <button onClick={handleClick}>Search</button> */}
+      <button>Search</button>
     </div>
   );
 }

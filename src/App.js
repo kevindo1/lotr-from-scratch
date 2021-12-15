@@ -8,6 +8,7 @@ import Books from './views/Books/Books';
 function App() {
   return (
     <div className="App">
+      <h1>LOTR</h1>
       <BrowserRouter>
         <header>
           <NavLink to="/" data-testid="home-link">

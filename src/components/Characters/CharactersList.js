@@ -6,8 +6,6 @@ export default function CharactersList({ characters }) {
       {characters.map((character) => (
         <div className="character" key={character.name}>
           <a href={character.wikiUrl}>{character.name}</a>
-          <p>{character.birth}</p>
-          <p>{character.death}</p>
         </div>
       ))}
     </section>
