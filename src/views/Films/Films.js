@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import FilmsList from '../../../src/components/Films/FilmsList';
-import fetchFilms from '../../../src/components/Films/FilmsList';
+import { fetchFilms } from '../../services/films';
 
-export default function CharacterList() {
-  const [characters, setCharacters] = useState([]);
+export default function Films() {
+  const [films, setFilms] = useState([]);
 
   useEffect(() => {
-    const getCharacters = async () => {
+    const getFilms = async () => {
       const resp = await fetchFilms();
-      setCharacters(resp);
+      setFilms(resp);
     };
-    getCharacters();
+    getFilms();
   }, []);
-
   return (
     <div>
-      <FilmsList characters={characters} setCharacters={setCharacters} />
+      <h1>Films</h1>
+      <FilmsList films={films} setFilms={setFilms} />
     </div>
   );
 }

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BooksList from '../../../src/components/Books/BooksList';
+import { fetchBooks } from '../../services/books';
 
-export default function BookList({ books }) {
+export default function Films() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const getBooks = async () => {
+      const resp = await fetchBooks();
+      setBooks(resp);
+    };
+    getBooks();
+  }, []);
   return (
-    <section className="books">
-      {books.map((book) => (
-        <div className="book" key={book[0]}>
-          <a href={book.wikiUrl}>{book[0]}</a>
-          <p>{book[1]}</p>
-          <p>{book[2]}</p>
-        </div>
-      ))}
-    </section>
+    <div>
+      <h1>Books</h1>
+      <BooksList books={books} setBooks={setBooks} />
+    </div>
   );
 }
