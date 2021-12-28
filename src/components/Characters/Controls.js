@@ -1,17 +1,8 @@
 import React from 'react';
 
-export default function Controls({ query, setQuery, races, setRaces }) {
+export default function Controls({ handleClick, query, setQuery, races, setRaces }) {
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search Name"
-        label="Search Name"
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-        }}
-      ></input>
       <select value={races} onChange={(e) => setRaces(e.target.value)}>
         <option value="All">All</option>
         <option value="Dwarf">Dwarf</option>
@@ -21,7 +12,16 @@ export default function Controls({ query, setQuery, races, setRaces }) {
         <option value="Maiar">Maiar</option>
         <option value="Orc">Orc</option>
       </select>
-      <button>Search</button>
+      <input
+        type="text"
+        placeholder="Search Name"
+        label="Search Name"
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value);
+        }}
+      ></input>
+      <button onClick={handleClick}>Search</button>
     </div>
   );
 }

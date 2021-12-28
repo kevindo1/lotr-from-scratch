@@ -10,24 +10,28 @@ export default function Characters() {
 
   useEffect(() => {
     const getCharacters = async () => {
-      const resp = await fetchCharacters(races, query);
+      const resp = await fetchCharacters(races);
       setCharacters(resp);
     };
     getCharacters();
-  }, [races, query]);
+  }, [races]);
+
+  const handleClick = async () => {
+    const resp = await fetchCharacters(races, query);
+    setCharacters(resp);
+  };
 
   return (
     <div>
       <h1>Characters</h1>
-      <Controls query={query} setQuery={setQuery} races={races} setRaces={setRaces} />
-      <CharactersList
-        characters={characters}
-        setCharacters={setCharacters}
+      <Controls
         query={query}
         setQuery={setQuery}
         races={races}
         setRaces={setRaces}
+        handleClick={handleClick}
       />
+      <CharactersList characters={characters} />
     </div>
   );
 }
